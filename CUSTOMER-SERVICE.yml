@@ -19,9 +19,9 @@ spring:
 #  cloud:
 #    config:
 #      uri: http://localhost:8085/
-  config:
-    import: 
-    - configserver:http://localhost:8085
+#   config:
+#     import: 
+#     - configserver:http://localhost:8085
 
 auth:
   login-URL: http://AUTH-SERVER/auth/login
