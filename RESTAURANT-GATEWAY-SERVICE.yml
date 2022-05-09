@@ -1,0 +1,23 @@
+server:
+  port: 8084
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: ORDER-SERVICE
+        uri: http://localhost:8081/
+        predicates:
+        - Path= /order/**
+      - id: REVIEW-SERVICE
+        uri: lb://REVIEW-SERVICE/
+        predicates:
+        - Path= /review/**
+      - id: RESTAURANT-SERVICE
+        uri: lb://RESTAURANT-SERVICE/
+        predicates:
+        - Path= /restaurant/**, /restaurants/**, /item/**
+      - id: CUSTOMER-SERVICE
+        uri: lb://CUSTOMER-SERVICE/
+        predicates:
+        - Path= /customer/**
+                  
